@@ -1,12 +1,9 @@
 #!/bin/bash
 
-#Create launcher script will detect ethernet ip and apply to headless.js
+#Create launcher script changed for eth0 attribute
 cat > companionLaunch.sh  <<EOF 
 #!/bin/bash
-sudo -u pi /home/pi/companion/headless.js $(_IP=$(hostname -I) || true
-if [ "$_IP" ]; then
-  printf "$_IP"
-fi) 8000 
+sudo -u pi /home/pi/companion/headless.js eth0 8000 
 EOF
 
 
